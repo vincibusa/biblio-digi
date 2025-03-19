@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -7,8 +7,8 @@ import BookDetailPage from './pages/BookDetailPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
-
-function AppContent() {
+import BookPreview3D from './components/BookPreview3D';
+function App() {
   const location = useLocation();
   const isAuthPage = ['/login', '/registrati'].includes(location.pathname);
 
@@ -23,6 +23,7 @@ function AppContent() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/registrati" element={<RegisterPage />} />
           <Route path="/profilo" element={<ProfilePage />} />
+          <Route path="/3d-viewer" element={<BookPreview3D />} />
         </Routes>
       </main>
       {!isAuthPage && <Footer />}
@@ -30,10 +31,4 @@ function AppContent() {
   );
 }
 
-export default function App() {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  );
-}
+export default App;

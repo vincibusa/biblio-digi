@@ -3,3 +3,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes horizontal-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes horizontal-scroll-2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-horizontal-scroll {
+  animation: horizontal-scroll 30s linear infinite;
+}
+
+.animate-horizontal-scroll-2 {
+  animation: horizontal-scroll-2 30s linear infinite;
+}
+
+.outline-text {
+  -webkit-text-stroke: 1px white;
+}
+
+/* Stili specifici per il visualizzatore del libro */
+.book-viewer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 50;
+}
+
+/* Stili per il responsive */
+@media screen and (max-width: 768px) {
+  .book-viewer-controls {
+    flex-direction: column;
+  }
+}
